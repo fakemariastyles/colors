@@ -2,6 +2,7 @@ package com.example.colors
 
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -17,9 +18,8 @@ class MainActivity: AppCompatActivity() {
         val btn3: Button = findViewById<Button>(R.id.button3)
         btn1.setOnClickListener() {
             val i = Intent(this,AnotherActivity::class.java)
-            val colorCode: String = btn1.getTag().toString()
-            println(colorCode)
-            i.putExtra("color",colorCode)
+            val color: Int = (btn1.background as ColorDrawable).color
+            i.putExtra("color",color)
             startActivity(i)
         }
         btn2.setOnClickListener() {
